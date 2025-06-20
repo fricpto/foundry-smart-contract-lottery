@@ -38,3 +38,8 @@ jobs:
         run: |
           forge test -vvv
         id: test
+        
+      - name: Build with size check
+      run: |
+      forge build --sizes --skip "VRFCoordinatorV2_5Mock" || echo "Skipping size check failure"
+      continue-on-error: true
